@@ -43,10 +43,11 @@ public class BankTest {
     public void balanceTest() throws InterruptedException {
                 int balance = Integer.parseInt(driver.findElement(By.xpath("//strong[@class=\"ng-binding\"][2]")).getText());
         driver.findElement(By.xpath("//button[@ng-click=\"deposit()\"]")).click();
-        driver.findElement(By.xpath("//input")).sendKeys("1000");
+        driver.findElement(By.xpath("//label[contains(text(), 'Deposited')]/following-sibling::input")).sendKeys("1000");
         driver.findElement(By.xpath("//button[text()=\"Deposit\"]")).click();
         driver.findElement(By.xpath("//button[@ng-click=\"withdrawl()\"]")).click();
-        driver.findElement(By.xpath("//input")).sendKeys("500");
+        driver.findElement(By.xpath("//label[contains(text(), 'Withdrawn')]/following-sibling::input")).sendKeys("500");
+        Thread.sleep(2000);
         driver.findElement(By.xpath("//button[text()=\"Withdraw\"]")).click();
 
         int newBalance = balance + 500;
