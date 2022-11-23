@@ -230,7 +230,8 @@ public class XYZBank {
         input_search_customer.sendKeys(search);
         return this;
     }
-    public XYZBank deleteCustomer(){
+
+    public XYZBank deleteCustomer() {
         delete_customer.click();
         return this;
     }
